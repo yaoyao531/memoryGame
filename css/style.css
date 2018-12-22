@@ -1,0 +1,54 @@
+#board {
+    width:640px;
+    height: 640px;
+    background-color: aqua;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#heading {
+    margin: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.game_card {
+    width: 125px;
+    height: 125px;
+    background-color: darkslategray;
+    margin: 17px;
+    border-radius: 10px;
+}
+.letter {
+    color: white;
+    font-size: 50px;
+    position: relative;
+    left: 45px;
+    top: 25px;
+}
+#countdown {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#count {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#control-div {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+}
+#start-btn {
+    font-size: 40px;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+#reset-btn {
+    font-size: 40px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    display: none;
+}
