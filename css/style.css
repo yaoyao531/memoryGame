@@ -52,3 +52,12 @@
     border-radius: 5px;
     display: none;
 }
+.checked {
+    color: orange;
+    padding: 10px;
+}
+#ratings {
+    font-size: 80px;
+    text-align: center;
+    display: none;
+}

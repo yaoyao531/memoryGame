@@ -23,6 +23,7 @@ function startGame() {
     initGame();
     initTimer();
     toggleButton();
+    hideStar();
 }
 
 function resetGame() {
@@ -98,14 +99,17 @@ function clickGameCard(elem) {
                 div2.style.backgroundColor = 'blue';
                 div1.removeEventListener('click', clickGameCard);
                 div2.removeEventListener('click', clickGameCard);
+                
                 setTimeout(function () {
                     counter++;
                     if (counter === 8) {
+                        const rating = calRatings();
+                        showStar(rating);
                         const winningMsg = `You Win!! You used ${flips} flips, and ${90 - seconds} seconds`;
                         window.confirm(winningMsg);
                         resetGame();
                     }
-                }, 500);
+                }, 1000);
             } else {
                 div1.style.backgroundColor = 'red';
                 div2.style.backgroundColor = 'red';
@@ -133,6 +137,7 @@ function increaseFlips() {
 function revertGame() {
     const gameCards = document.getElementsByClassName("game_card");
     clickedObjects.splice(0, clickedObjects.length);
+    counter = 0;
     for (let i in gameCards) {
         if (typeof (gameCards[i]) === 'object') {
             gameCards[i].removeEventListener('click', clickGameCard);
@@ -164,3 +169,31 @@ function shuffleInputs(inputs) {
     }
 }
 
+function calRatings() {
+    if (flips <= 20 && seconds >= 60) {
+        return 3;
+    } else if (flips <= 40 && seconds >= 30) {
+        return 2;
+    }
+    return 1;
+}
+
+function showStar(rating) {
+    const gameRating = document.getElementById("ratings");
+    const title = document.createElement('h2');
+    title.innerHTML = 'Previous Game Rating';
+    gameRating.appendChild(title);
+    if (gameRating == null) return;
+    for (let i = 0; i < rating; i++) {
+        const star = document.createElement('span');
+        star.setAttribute('class', 'fa fa-star checked');
+        gameRating.appendChild(star);
+    }
+    gameRating.style.display = 'block';
+}
+
+function hideStar() {
+    const gameRating = document.getElementById("ratings");
+    gameRating.innerHTML = "";
+    gameRating.style.display = 'none';
+}
