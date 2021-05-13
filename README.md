@@ -21,8 +21,3 @@ CSS Bootstrap
 
 ## How to use?
 Run index.html in modern browser and play the game
-
-## Contribute
-
-## Credits
-Special thanks to Chen Guo https://github.com/vesperiaLSU
